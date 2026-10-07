@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Primo Café – Mexican Coffee &amp; Traditional Breakfast</title>
+    <meta name="description" content="Discover El Primo Café in Wichita Falls, TX. Authentic Mexican breakfast burritos, tacos, chilaquiles, and traditional dishes crafted with passion. Order online today.">
+    <link rel="icon" id="favicon" type="image/png" href="https://res.cloudinary.com/dzklt0a5u/image/upload/f_auto,q_auto:eco,dpr_auto,w_250/v1791389024/Logo_Vectorizado_lh145d.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: #a63a2a;
+            --color-primary-hover: #8a2e20;
+            --color-secondary: #2d5a27;
+            --color-accent: #c97a2b;
+            --color-text-dark: #2c221e;
+            --color-text-light: #5e524d;
+            --color-white: #ffffff;
+            --color-background: #f2ebdd;
+            --color-card-bg: #fdfaf3;
+            --color-footer: #1a1614;
+            --font-serif: 'Playfair Display', Georgia, serif;
+            --font-sans: 'Plus Jakarta Sans', Arial, sans-serif;
+            --font-hand: 'Caveat', cursive;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+            /* Wood textures */
+            --wood-dark: repeating-linear-gradient(
+                92deg,
+                #3b2416 0px,
+                #3b2416 2px,
+                #452a1a 2px,
+                #452a1a 5px,
+                #3a2315 5px,
+                #3a2315 9px,
+                #4a2e1d 9px,
+                #4a2e1d 14px
+            );
+            --wood-medium: repeating-linear-gradient(
+                88deg,
+                #6b4326 0px,
+                #6b4326 3px,
+                #7a4d2c 3px,
+                #7a4d2c 7px,
+                #65401f 7px,
+                #65401f 11px,
+                #724828 11px,
+                #724828 16px
+            );
+            --paper-texture:
+                radial-gradient(circle at 20% 30%, rgba(200,175,140,0.10) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(180,150,110,0.10) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(210,185,150,0.06) 0%, transparent 60%),
+                #f2ebdd;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--color-text-dark);
+            background-color: var(--color-background);
+            background-image: var(--paper-texture);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ===== Navbar with wood texture ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #4a2e1d;
+            background-image:
+                linear-gradient(rgba(30,18,10,0.55), rgba(30,18,10,0.55)),
+                var(--wood-medium);
+            background-blend-mode: multiply;
+            z-index: 1000;
+            padding: 16px 0;
+            box-shadow: 0 6px 24px rgba(20, 12, 6, 0.35);
+            transition: var(--transition);
+            border-bottom: 4px solid #2a1a10;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            font-weight: 700;
+            color: #f6ead6;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 1px 1px 0 rgba(0,0,0,0.4);
+        }
+
+        .navbar-brand span {
+            color: #e8a45c;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #e8dcc8;
+            letter-spacing: 1.4px;
+            transition: var(--transition);
+            position: relative;
+            padding: 4px 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #e8a45c;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: #f6ead6;
+        }
+
+        .navbar-toggler {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .toggler-icon {
+            width: 28px;
+            height: 2px;
+            background-color: #e8dcc8;
+            transition: var(--transition);
+        }
+
+        /* ===== Hero ===== */
+        .hero {
+            position: relative;
+            height: 90vh;
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image:
+                linear-gradient(135deg, rgba(26, 18, 12, 0.82) 0%, rgba(44, 30, 20, 0.62) 100%),
+                url('https://res.cloudinary.com/dzklt0a5u/image/upload/f_auto,q_auto,w_1200/v1791389310/image_-_2026-10-02T134716.841_r8ibjk.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* subtle paper grain overlay on hero */
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.35;
+            background-image:
+                radial-gradient(circle at 15% 25%, rgba(255,220,170,0.10) 0%, transparent 45%),
+                radial-gradient(circle at 85% 75%, rgba(255,200,140,0.08) 0%, transparent 45%);
+            mix-blend-mode: overlay;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, transparent 30%, rgba(15, 10, 6, 0.5) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: var(--color-white);
+            padding: 0 20px;
+            max-width: 900px;
+        }
+
+        .hero-subtitle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3.5px;
+            color: #e8a45c;
+            margin-bottom: 22px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+        }
+
+        .line-decoration {
+            width: 50px;
+            height: 2px;
+            background-color: #e8a45c;
+            box-shadow: 0 0 6px rgba(232,164,92,0.6);
+        }
+
+        /* Handwritten-style logo frame */
+        .hero-logo-container {
+            margin-bottom: 25px;
+            display: inline-block;
+            padding: 14px;
+            background: rgba(255, 245, 225, 0.08);
+            backdrop-filter: blur(4px);
+            border-radius: 50%;
+            border: 2px solid rgba(232, 164, 92, 0.35);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.4), inset 0 0 20px rgba(232,164,92,0.1);
+        }
+
+        .hero-logo {
+            max-height: 110px;
+            width: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 50%;
+        }
+
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+            text-shadow: 2px 3px 6px rgba(0,0,0,0.55);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        /* Hand-painted looking button */
+        .custom-order-btn {
+            display: inline-block;
+            background-color: var(--color-primary);
+            background-image: linear-gradient(180deg, rgba(255,255,255,0.12) 0%, rgba(0,0,0,0.15) 100%);
+            color: var(--color-white);
+            padding: 15px 36px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            border-radius: 4px;
+            transition: var(--transition);
+            box-shadow: 0 5px 0 #7a2919, 0 8px 20px rgba(0,0,0,0.35);
+            border: 1px solid #7a2919;
+            cursor: pointer;
+            position: relative;
+            top: 0;
+        }
+
+        .custom-order-btn:hover {
+            background-color: var(--color-primary-hover);
+            top: -2px;
+            box-shadow: 0 7px 0 #6e2516, 0 12px 26px rgba(0,0,0,0.4);
+        }
+
+        .custom-order-btn:active {
+            top: 3px;
+            box-shadow: 0 2px 0 #6e2516, 0 4px 12px rgba(0,0,0,0.4);
+        }
+
+        .hero-address {
+            font-size: 15px;
+            font-weight: 400;
+            color: rgba(255, 245, 225, 0.9);
+            letter-spacing: 0.6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+            font-family: var(--font-hand);
+            font-size: 20px;
+        }
+
+        /* ===== Section Titles ===== */
+        .section-header {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--color-text-dark);
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .line-small {
+            width: 35px;
+            height: 2px;
+            background-color: var(--color-primary);
+        }
+
+        .section-subtitle {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--color-primary);
+        }
+
+        /* ===== About ===== */
+        .about-section {
+            padding: 100px 0;
+            background-color: #fbf6ec;
+            background-image:
+                radial-gradient(circle at 5% 10%, rgba(200,170,130,0.10) 0%, transparent 35%),
+                radial-gradient(circle at 95% 90%, rgba(200,170,130,0.08) 0%, transparent 35%),
+                repeating-linear-gradient(0deg, transparent 0px, transparent 40px, rgba(180,150,110,0.035) 40px, rgba(180,150,110,0.035) 41px);
+            position: relative;
+            border-top: 1px solid rgba(139, 90, 43, 0.15);
+            border-bottom: 1px solid rgba(139, 90, 43, 0.15);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .about-text .section-subtitle-container {
+            justify-content: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .about-text p {
+            color: var(--color-text-light);
+            margin-bottom: 20px;
+            font-size: 17px;
+        }
+
+        .about-images {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 20px;
+            position: relative;
+        }
+
+        /* Slight rotation for a hand-placed, organic feel */
+        .about-image {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 6px;
+            box-shadow: 0 15px 35px rgba(44, 30, 20, 0.18);
+            transition: var(--transition);
+            border: 6px solid #fbf6ec;
+            outline: 1px solid rgba(139, 90, 43, 0.2);
+        }
+
+        .about-image:first-child {
+            grid-column: 1 / span 8;
+            grid-row: 1;
+            z-index: 2;
+            transform: rotate(-1.5deg);
+        }
+
+        .about-image:last-child {
+            grid-column: 6 / span 7;
+            grid-row: 1;
+            margin-top: 60px;
+            z-index: 1;
+            opacity: 0.95;
+            transform: rotate(2deg);
+        }
+
+        /* ===== Gallery ===== */
+        .gallery-section {
+            padding: 100px 0;
+            background-color: #ede4d1;
+            background-image:
+                radial-gradient(circle at 90% 10%, rgba(200,170,130,0.12) 0%, transparent 40%),
+                radial-gradient(circle at 10% 90%, rgba(200,170,130,0.10) 0%, transparent 40%);
+            position: relative;
+        }
+
+        #gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 26px;
+            margin-top: 40px;
+        }
+
+        .gallery-img-wrap {
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 8px 22px rgba(44, 30, 20, 0.18);
+            background: #fbf6ec;
+            aspect-ratio: 1 / 1;
+            padding: 7px;
+            border: 1px solid rgba(139, 90, 43, 0.25);
+            transition: var(--transition);
+        }
+
+        /* Alternate rotations for a hand-placed gallery feel */
+        .gallery-img-wrap:nth-child(3n+1) { transform: rotate(-0.8deg); }
+        .gallery-img-wrap:nth-child(3n+2) { transform: rotate(0.6deg); }
+        .gallery-img-wrap:nth-child(3n+3) { transform: rotate(-0.3deg); }
+
+        .gallery-img-wrap:hover {
+            transform: rotate(0deg) scale(1.02);
+            box-shadow: 0 14px 32px rgba(44, 30, 20, 0.28);
+            z-index: 3;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            border-radius: 2px;
+        }
+
+        .gallery-img-wrap:hover .gallery-img {
+            transform: scale(1.05);
+        }
+
+        /* ===== Info ===== */
+        .info-section {
+            padding: 100px 0;
+            background-color: #fbf6ec;
+            background-image:
+                repeating-linear-gradient(0deg, transparent 0px, transparent 50px, rgba(180,150,110,0.03) 50px, rgba(180,150,110,0.03) 51px);
+        }
+
+        .info-box {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #f2ebdd;
+            background-image:
+                radial-gradient(circle at 20% 20%, rgba(200,175,140,0.12) 0%, transparent 45%),
+                radial-gradient(circle at 80% 80%, rgba(200,175,140,0.10) 0%, transparent 45%);
+            padding: 60px;
+            border-radius: 8px;
+            box-shadow: 0 14px 40px rgba(44, 30, 20, 0.12), inset 0 0 0 1px rgba(139, 90, 43, 0.15);
+            border: 1px solid rgba(139, 90, 43, 0.2);
+            position: relative;
+        }
+
+        /* little "nail" corner decoration */
+        .info-box::before {
+            content: '';
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #b08a5a, #6b4326);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+        .info-box::after {
+            content: '';
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #b08a5a, #6b4326);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .info-item {
+            padding: 28px 20px;
+            background: #fdfaf3;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(44, 30, 20, 0.08);
+            border: 1px solid rgba(139, 90, 43, 0.15);
+            transition: var(--transition);
+        }
+
+        .info-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 24px rgba(44, 30, 20, 0.14);
+        }
+
+        .info-item h4 {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            color: var(--color-text-dark);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .info-item p {
+            color: var(--color-text-light);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* ===== Footer with wood texture ===== */
+        .site-footer {
+            background-color: #221610;
+            background-image:
+                linear-gradient(rgba(20,12,7,0.75), rgba(20,12,7,0.75)),
+                var(--wood-dark);
+            background-blend-mode: multiply;
+            padding: 80px 0 30px;
+            color: #c9b8a4;
+            border-top: 5px solid #3b2416;
+            position: relative;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+
+        .footer-title {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            font-weight: 700;
+            color: #f6ead6;
+            margin-bottom: 20px;
+            letter-spacing: -0.3px;
+            text-shadow: 1px 1px 0 rgba(0,0,0,0.4);
+        }
+
+        .footer-col p {
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(232, 164, 92, 0.15);
+            font-size: 14px;
+            color: #9a8a78;
+        }
+
+        .footer-bottom a {
+            color: #e8a45c;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        .footer-bottom a:hover {
+            color: #f6ead6;
+            text-decoration: underline;
+        }
+
+        /* ===== Language switcher ===== */
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: 15px;
+            padding-left: 20px;
+            border-left: 1px solid rgba(232, 164, 92, 0.3);
+        }
+
+        .lang-btn {
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+            transition: var(--transition);
+            background: none;
+            border: 1px solid transparent;
+            padding: 4px 10px;
+            border-radius: 4px;
+            color: #e8dcc8;
+        }
+
+        .lang-btn.active {
+            background-color: #a63a2a;
+            color: #f6ead6;
+            border-color: #7a2919;
+        }
+
+        .lang-btn:not(.active) {
+            color: #c9b8a4;
+        }
+
+        .lang-btn:not(.active):hover {
+            color: #f6ead6;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 48px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-images {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-toggler {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background-color: #4a2e1d;
+                background-image:
+                    linear-gradient(rgba(30,18,10,0.5), rgba(30,18,10,0.5)),
+                    var(--wood-medium);
+                background-blend-mode: multiply;
+                padding: 30px 20px;
+                gap: 20px;
+                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+                transform: translateY(-120%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+            }
+
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .lang-switch {
+                margin-left: 0;
+                padding-left: 0;
+                border-left: none;
+                border-top: 1px solid rgba(232, 164, 92, 0.25);
+                padding-top: 15px;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .hero-subtitle {
+                font-size: 11px;
+                letter-spacing: 2px;
+            }
+
+            .info-box {
+                padding: 30px 20px;
+            }
+
+            .about-image:first-child,
+            .about-image:last-child {
+                transform: rotate(0deg);
+            }
+        }
+
+        /* Utility: subtle vignette on sections for analog feel */
+        .about-section::after,
+        .gallery-section::after,
+        .info-section::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: radial-gradient(ellipse at center, transparent 60%, rgba(80, 55, 30, 0.05) 100%);
+        }
+
+        .about-section, .gallery-section, .info-section {
+            position: relative;
+        }
+    </style>
+<script>window.MENU_TECH_STATE = {"lang":"en","showReservations":false,"showAbout":true,"showPromo":false,"showGallery":true,"showCatering":false,"showInfo":true,"showDelivery":false,"cuid":"00000","ruid":"00000","title":"EL PRIMO CAFÉ","logoImg":"https://res.cloudinary.com/dzklt0a5u/image/upload/v1791389024/Logo_Vectorizado_lh145d.png","heroAddress":"900 8th St #103, Wichita Falls, TX 76301","heroImg":"https://res.cloudinary.com/dzklt0a5u/image/upload/v1791389310/image_-_2026-10-02T134716.841_r8ibjk.png","aboutImg1":"https://res.cloudinary.com/dzklt0a5u/image/upload/v1791389301/IMG-20261002-WA0033_gjigb3.jpg","aboutImg2":"https://res.cloudinary.com/dzklt0a5u/image/upload/v1791389306/motion_photo_5874145227046949360_zxjbph.jpg","promoBg":"https://res.cloudinary.com/dzklt0a5u/image/upload/v1777151404/yiebnrm6l10wizbcdbp2.jpg","cateringBg":"https://res.cloudinary.com/dzklt0a5u/image/upload/v1777151404/yiebnrm6l10wizbcdbp2.jpg","deliveryImg":"https://res.cloudinary.com/dzklt0a5u/image/upload/v1777151404/yiebnrm6l10wizbcdbp2.jpg","gallery":["https://res.cloudinary.com/dzklt0a5u/image/upload/v1791389280/818321738_1052412897598705_3069040711876372711_n_rdgysm.jpg","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791389281/807727874_1046061924900469_5449739435569168612_n_w9vqrt.jpg","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791389282/815469360_1049116711261657_891912467594982742_n_mlzxft.jpg","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791389283/778972630_1023475073825821_8964535582201307039_n_iwiyfp.jpg","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791389283/788964575_1035219329318062_3119536727236711263_n_oxsxuj.jpg","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791389284/778984994_1023475000492495_2702274465451589434_n_alyyn6.jpg","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791389284/778984942_1023807383792590_5549567181562375655_n_krbu6d.jpg","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791389285/778061224_1023805043792824_1699317338016944774_n_wyy6cj.jpg","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791389285/778226595_1023806563792672_4150800420733190516_n_jjdkf7.jpg","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791389286/777825425_1023474997159162_3072517405821676776_n_pvlkxy.jpg","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791389286/777478948_1023808640459131_7662290975147435049_n_kofir2.jpg","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791389287/776921798_1023802283793100_6292487141336836807_n_mm2lza.jpg","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791389288/775281801_1023800207126641_6432308816301343696_n_ucqe1h.jpg","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791389288/775261298_1023801503793178_4642723334554538173_n_jldk45.jpg","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791389289/775260492_1025329046973757_6003432075740483778_n_kbqz7b.jpg","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791389289/772817613_1018735637633098_3813837017212399492_n_e91nte.jpg","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791389290/771652404_1018737347632927_8994055432286207143_n_d3egih.jpg","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791389290/482265077_609514801888519_6492988688695754571_n_fwdyfq.jpg","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791389291/482301615_609539521886047_2746860080037331332_n_n9yflq.jpg","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791389291/482214106_609524351887564_2290509365582534754_n_depxqm.jpg","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791389292/481923705_609527938553872_5560682451324767596_n_qjstgh.jpg","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791389292/481906260_609849998521666_313771693220049297_n_decbsl.jpg","https://res.cloudinary.com/dzklt0a5u/image/upload/v1791389293/481897397_609510138555652_9129539611357351705_n_vlftnh.jpg"],"contact":{"phone":"940 232 4426","address":"900 8th St #103, Wichita Falls, TX 76301","hours":"Monday to Friday, 8:00 AM – 2:30 PM. Weekends closed."},"socials":[{"platform":"instagram","url":"https://www.instagram.com/el.primocafe/"},{"platform":"facebook","url":"https://www.facebook.com/people/El-PRIMO-CAFE/100084900120732/"}],"paragraphs":{"about":"We proudly serving traditional Mexican dishes Breakfast Burritos, breakfast tacos, Breakfast Sanwiches, and breakfast Plates : Chilaquiles, Huevos rancheros , Migas, Guisada & eggs, breakfast enchiladas,omelettes,wafles and Pancakes Street tacos, Tortas , Quesadillas, nachos , flautas , fajitas, carne asada, burgers, salad ,churros,Sopapillas,tres leches Cake etc Aguas frescas , Sodas , Ice Tea","promo":"2 Medium Pizzas\n\nSoft Drinks\n\nGarlic Bread or Patato Wedges\n\nSalad to share\n\nHope you are hungry. Buy one regular priced pizza online and get a second pizza totally free!\n\nOnline only!\n\n6 Delicious regular size pizzas to choose from: Margherita, Capricciosa, Prosciutto e Funghi, Diavola, Calzone, Primavera.","catering":"Restaurant Pronto can cater to any party or event irrespective of how big or small. We specialize in catering with personalised service and special menus on request. In our menu palette, you'll discover unique and sophisticated tastes - all of which will help you uncover the true greatness of the mexican restaurant.\n\nTell us about your event at office@pronto-wp.com","delivery":"Looking for food delivery nearby? Not everybody knows or has the time to prepare tasty food.\n\nWhen you want to get served like a king then food delivery from restaurant Pronto will be your best choice.\n\nSimply select \"Delivery\" at the checkout screen and we hope you'll appreciate our food delivery service."},"titles":{"about-title":"We are EL PRIMO CAFÉ","about-subtitle":"About Us","promo1-title":"Best Friends Deal","promo1-subtitle":"Sharing Is Caring","promo2-title":"Buy 1 Get 1 FREE","promo2-subtitle":"This Week Only","promo3-title":"Awesome Foursome","promo3-subtitle":"Sundays Only","gallery-title":"Delicious Mexican Food","gallery-subtitle":"Love At First Bite","catering-title":"Catering","catering-subtitle":"Party Time","delivery-title":"Food Delivery in NY","delivery-subtitle":"Get Served Like a King","info-title":"Information","info-subtitle":"Visit Us"},"info":{"hours":"Monday to Friday, 8:00 AM – 2:30 PM. Weekends closed.","phone":"940 232 4426","address":"900 8th St #103, Wichita Falls, TX 76301"}};</script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="navbar-brand" id="nav-brand">EL PRIMO <span>CAFÉ</span></a>
+            <button class="navbar-toggler" id="navbar-toggler" aria-label="Toggle navigation">
+                <span class="toggler-icon"></span>
+                <span class="toggler-icon"></span>
+                <span class="toggler-icon"></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active" data-es="Inicio" data-en="Home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about-section" class="nav-link" data-es="Nosotros" data-en="About">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#gallery-section" class="nav-link" data-es="Galería" data-en="Gallery">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#info-section" class="nav-link" data-es="Contacto" data-en="Contact">Contact</a>
+                </li>
+                <li class="nav-item lang-switch">
+                    <button id="lang-es" class="lang-btn">ES</button>
+                    <button id="lang-en" class="lang-btn active">EN</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero" id="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-logo-container">
+                <img src="https://res.cloudinary.com/dzklt0a5u/image/upload/f_auto,q_auto:eco,dpr_auto,w_250/v1791389024/Logo_Vectorizado_lh145d.png" id="hero-logo" alt="El Primo Café Logo" class="hero-logo" width="110" height="110">
+            </div>
+            <div class="hero-subtitle">
+                <span class="line-decoration"></span>
+                <span data-es="Cafetería y Comida Mexicana Tradicional" data-en="Traditional Mexican Café & Kitchen">Traditional Mexican Café & Kitchen</span>
+                <span class="line-decoration"></span>
+            </div>
+            <h1 class="hero-title" id="hero-main-title">Auténtico Sabor Mexicano</h1>
+            <div class="hero-buttons">
+                <a href="https://elprimocafe.onlineordering.io/en/menu" target="_blank" class="custom-order-btn" data-es="Ordenar en Línea" data-en="Order Online">Order Online</a>
+            </div>
+            <p class="hero-address" id="hero-address">900 8th St #103, Wichita Falls, TX 76301</p>
+        </div>
+    </header>
+
+    <section class="about-section" id="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2 class="section-title" id="about-title" data-es="Somos El Primo Café" data-en="We are EL PRIMO CAFÉ">We are EL PRIMO CAFÉ</h2>
+                    <span class="section-subtitle-container">
+                        <span class="line-small"></span>
+                        <span class="section-subtitle" id="about-subtitle" data-es="Sobre Nosotros" data-en="About Us">About Us</span>
+                    </span>
+                    <p id="about-p1">We proudly serving traditional Mexican dishes Breakfast Burritos, breakfast tacos, Breakfast Sanwiches, and breakfast Plates : Chilaquiles, Huevos rancheros , Migas, Guisada & eggs, breakfast enchiladas,omelettes,wafles and Pancakes Street tacos, Tortas , Quesadillas, nachos , flautas , fajitas, carne asada, burgers, salad ,churros,Sopapillas,tres leches Cake etc Aguas frescas , Sodas , Ice Tea</p>
+                </div>
+                <div class="about-images">
+                    <img id="about-img-1" src="https://res.cloudinary.com/dzklt0a5u/image/upload/f_auto,q_auto,w_600/v1791389301/IMG-20261002-WA0033_gjigb3.jpg" alt="Traditional Mexican Dish" class="about-image" loading="lazy" width="400" height="380">
+                    <img id="about-img-2" src="https://res.cloudinary.com/dzklt0a5u/image/upload/f_auto,q_auto,w_600/v1791389306/motion_photo_5874145227046949360_zxjbph.jpg" alt="El Primo Café Specialty" class="about-image" loading="lazy" width="400" height="380">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section" id="gallery-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" id="gallery-title" data-es="Platillos Tradicionales" data-en="Delicious Mexican Food">Delicious Mexican Food</h2>
+                <span class="section-subtitle-container">
+                    <span class="line-small"></span>
+                    <span class="section-subtitle" id="gallery-subtitle" data-es="Amor al Primer Bocado" data-en="Love At First Bite">Love At First Bite</span>
+                </span>
+            </div>
+            <div id="gallery-container">
+            </div>
+        </div>
+    </section>
+
+    <section class="info-section" id="info-section">
+        <div class="container">
+            <div class="info-box">
+                <div class="section-header" style="margin-bottom: 0;">
+                    <h2 class="section-title" id="info-title" data-es="Información" data-en="Information">Information</h2>
+                    <span class="section-subtitle-container">
+                        <span class="line-small"></span>
+                        <span class="section-subtitle" id="info-subtitle" data-es="Visítanos" data-en="Visit Us">Visit Us</span>
+                    </span>
+                </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <h4 data-es="Horarios" data-en="Opening Hours">Opening Hours</h4>
+                        <p id="info-hours">Monday to Friday, 8:00 AM – 2:30 PM. Weekends closed.</p>
+                    </div>
+                    <div class="info-item">
+                        <h4 data-es="Teléfono" data-en="Phone">Phone</h4>
+                        <p id="info-phone">940 232 4426</p>
+                    </div>
+                    <div class="info-item">
+                        <h4 data-es="Dirección" data-en="Address">Address</h4>
+                        <p id="info-address">900 8th St #103, Wichita Falls, TX 76301</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 class="footer-title" data-es="Contáctanos" data-en="Contact Us">Contact Us</h4>
+                    <p id="footer-address">900 8th St #103, Wichita Falls, TX 76301</p>
+                    <p id="footer-phone">Phone: 940 232 4426</p>
+                    <div id="social-icons" style="margin-top: 20px; display: flex; gap: 15px;">
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title" data-es="Horarios" data-en="Opening Hours">Opening Hours</h4>
+                    <p id="footer-hours">Monday to Friday, 8:00 AM – 2:30 PM. Weekends closed.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © <span id="copyright-year"></span> Powered by <a href="https://menutech.xyz/" target="_blank">Menutech</a>. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const optimizeCloudinaryUrl = (url, options = {}) => {
+            if (!url || typeof url !== 'string' || !url.includes('res.cloudinary.com')) return url;
+            const [baseUrl, hash] = url.split('#');
+            if (!baseUrl.includes('/upload/')) return url;
+            const parts = baseUrl.split('/upload/');
+            let pathSegments = parts[1].split('/');
+            if (pathSegments.length > 1) {
+                const firstSegment = pathSegments[0];
+                const isVersion = /^v\d+$/.test(firstSegment);
+                const isTransformation = !isVersion && (firstSegment.includes('_') || firstSegment.includes(','));
+                if (isTransformation) {
+                    pathSegments.shift();
+                }
+            }
+            const cleanPath = pathSegments.join('/');
+            let transformations = ['f_auto', 'q_auto:eco', 'dpr_auto'];
+            if (options.width) {
+                transformations.push(`w_${options.width}`);
+            } else {
+                transformations.push('w_400');
+            }
+            if (options.height) transformations.push(`h_${options.height}`);
+            if (options.crop) transformations.push(`c_${options.crop}`);
+            const transformationString = transformations.join(',');
+            const optimizedUrl = `${parts[0]}/upload/${transformationString}/${cleanPath}`;
+            return hash ? `${optimizedUrl}#${hash}` : optimizedUrl;
+        };
+
+        const SOCIAL_ICONS = {
+            instagram: `<svg style="width:24px;height:24px;fill:currentColor" viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>`,
+            facebook: `<svg style="width:24px;height:24px;fill:currentColor" viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg>`,
+            whatsapp: `<svg style="width:24px;height:24px;fill:currentColor" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.81 9.81 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.22 8.22 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23-1.44 0-2.85-.38-4.1-1.11l-.29-.17-3.06.81.82-2.98-.19-.3a8.22 8.22 0 0 1-1.26-4.48c0-4.54 3.7-8.23 8.24-8.23m-3.85 3.09c-.21 0-.45.03-.66.24-.21.21-.81.79-.81 1.94s.84 2.25.96 2.41c.12.16 1.63 2.49 3.96 3.5.55.24 1 .38 1.34.49.56.18 1.07.15 1.48.09.45-.06 1.39-.57 1.58-1.12.2-.55.2-1.02.14-1.12-.06-.1-.21-.16-.45-.27-.24-.12-1.39-.69-1.61-.77-.22-.08-.37-.12-.53.12-.16.24-.61.77-.75.93-.14.16-.27.18-.51.06-.24-.12-.99-.36-1.89-1.16-.7-.62-1.17-1.39-1.31-1.63-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.15.16-.25.24-.42.08-.17.04-.32-.02-.45-.06-.13-.53-1.28-.73-1.75-.19-.48-.39-.41-.53-.42l-.44-.01Z"/></svg>`
+        };
+
+        let currentLang = 'en';
+
+        function applyLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-es]').forEach(el => {
+                const text = el.getAttribute(`data-${lang}`);
+                if (text) el.textContent = text;
+            });
+
+            const esBtn = document.getElementById('lang-es');
+            const enBtn = document.getElementById('lang-en');
+            if (!esBtn || !enBtn) return;
+
+            if (lang === 'es') {
+                esBtn.classList.add('active');
+                enBtn.classList.remove('active');
+            } else {
+                enBtn.classList.add('active');
+                esBtn.classList.remove('active');
+            }
+        }
+
+        function updateUI(data) {
+            if (!data) return;
+            if (data.lang) {
+                applyLanguage(data.lang);
+            }
+            if (data.title) {
+                const navBrand = document.getElementById('nav-brand');
+                if (navBrand) navBrand.innerHTML = `EL PRIMO <span>CAFÉ</span>`;
+            }
+            if (data.logoImg) {
+                const logo = document.getElementById('hero-logo');
+                const favicon = document.getElementById('favicon');
+                const optimizedLogo = optimizeCloudinaryUrl(data.logoImg, { width: 250 });
+                if (logo) logo.src = optimizedLogo;
+                if (favicon) favicon.href = optimizedLogo;
+            }
+            if (data.heroAddress !== undefined) {
+                const addr = document.getElementById('hero-address');
+                if (addr) addr.textContent = data.heroAddress;
+            }
+            if (data.heroImg) {
+                const heroSection = document.getElementById('hero-section');
+                if (heroSection) heroSection.style.backgroundImage = `linear-gradient(135deg, rgba(26, 18, 12, 0.82) 0%, rgba(44, 30, 20, 0.62) 100%), url('${optimizeCloudinaryUrl(data.heroImg, { width: 1200 })}')`;
+            }
+            if (data.aboutImg1) {
+                const img = document.getElementById('about-img-1');
+                if (img) img.src = optimizeCloudinaryUrl(data.aboutImg1, { width: 600 });
+            }
+            if (data.aboutImg2) {
+                const img = document.getElementById('about-img-2');
+                if (img) img.src = optimizeCloudinaryUrl(data.aboutImg2, { width: 600 });
+            }
+            if (data.info) {
+                const hoursEl = document.getElementById('info-hours');
+                const phoneEl = document.getElementById('info-phone');
+                const addressEl = document.getElementById('info-address');
+
+                if (hoursEl) hoursEl.innerHTML = (data.info.hours || '').replace(/\n/g, '<br>');
+                if (phoneEl) phoneEl.textContent = data.info.phone || '';
+                if (addressEl) addressEl.textContent = data.info.address || '';
+
+                const fHours = document.getElementById('footer-hours');
+                const fPhone = document.getElementById('footer-phone');
+                const fAddress = document.getElementById('footer-address');
+                if (fHours) fHours.innerHTML = (data.info.hours || '').replace(/\n/g, '<br>');
+                if (fPhone) fPhone.textContent = (data.info.phone ? (currentLang === 'es' ? 'Teléfono: ' : 'Phone: ') + data.info.phone : '');
+                if (fAddress) fAddress.textContent = data.info.address || '';
+            }
+            if (data.socials) {
+                const container = document.getElementById('social-icons');
+                if (container) {
+                    container.innerHTML = data.socials.map(s => `
+                        <a href="${s.url}" target="_blank" style="color: #c9b8a4; transition: color 0.3s;" onmouseover="this.style.color='#e8a45c'" onmouseout="this.style.color='#c9b8a4'">
+                            ${SOCIAL_ICONS[s.platform] || ''}
+                        </a>
+                    `).join('');
+                }
+            }
+            if (data.gallery) {
+                const container = document.getElementById('gallery-container');
+                if (container) {
+                    container.innerHTML = data.gallery.map(img => `
+                        <div class="gallery-img-wrap">
+                            <img src="${optimizeCloudinaryUrl(img, { width: 500, height: 500, crop: 'fill' })}" class="gallery-img" loading="lazy" width="400" height="400" alt="El Primo Café dish">
+                        </div>
+                    `).join('');
+                }
+            }
+            if (data.titles) {
+                Object.keys(data.titles).forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.textContent = data.titles[id];
+                });
+            }
+            if (data.paragraphs) {
+                if (data.paragraphs.about) {
+                    const p1 = document.getElementById('about-p1');
+                    if (p1) p1.textContent = data.paragraphs.about;
+                }
+            }
+        }
+
+        window.addEventListener('message', (event) => {
+            if (event.data.type === 'UPDATE_CONTENT') {
+                updateUI(event.data.data);
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const yearEl = document.getElementById('copyright-year');
+            if (yearEl) yearEl.textContent = `2015 - ${new Date().getFullYear()}`;
+
+            if (window.MENU_TECH_STATE) {
+                updateUI(window.MENU_TECH_STATE);
+            }
+
+            const esBtn = document.getElementById('lang-es');
+            const enBtn = document.getElementById('lang-en');
+            if (esBtn) esBtn.addEventListener('click', () => applyLanguage('es'));
+            if (enBtn) enBtn.addEventListener('click', () => applyLanguage('en'));
+
+            const navbarToggler = document.getElementById('navbar-toggler');
+            const navMenu = document.getElementById('nav-menu');
+
+            if (navbarToggler && navMenu) {
+                navbarToggler.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    const icons = navbarToggler.querySelectorAll('.toggler-icon');
+                    icons.forEach((icon, index) => {
+                        if (navMenu.classList.contains('active')) {
+                            if (index === 0) icon.style.transform = 'rotate(45deg) translate(6px, 6px)';
+                            else if (index === 1) icon.style.opacity = '0';
+                            else if (index === 2) icon.style.transform = 'rotate(-45deg) translate(6px, -6px)';
+                        } else {
+                            icon.style.transform = 'none';
+                            icon.style.opacity = '1';
+                        }
+                    });
+                });
+
+                document.addEventListener('click', (e) => {
+                    if (!navbarToggler.contains(e.target) && !navMenu.contains(e.target)) {
+                        navMenu.classList.remove('active');
+                        const icons = navbarToggler.querySelectorAll('.toggler-icon');
+                        icons.forEach(icon => {
+                            icon.style.transform = 'none';
+                            icon.style.opacity = '1';
+                        });
+                    }
+                });
+            }
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        if (navMenu) navMenu.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
